@@ -1,5 +1,5 @@
 --- 
-title: "A Minimal Book Example"
+title: "Mapping in Leaflet"
 author: "Archie Atack"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,10 +9,133 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# Prerequisites
+## Introduction
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+Leaflet is a package in R that can create interactive maps. Most leaflet maps can be built out a few components:
 
+-   Markers
+
+-   Polygons
+
+-   Map tile background
+
+-   Legend
+
+-   Layer toggle
+
+The maps output as a html file which can be opened in a web browser and shared easily:
+
+-   The file can be shared via email
+
+-   Hosted on a sharepoint page - change the file extension from html to aspx and upload as a site owner
+
+-   Embedded within an R Markdown / Quarto document or Shiny dashboard
+
+The leaflet package is well documented and multiple examples can be found here:
+
+-   <https://rstudio.github.io/leaflet/>
+
+## Libraries and Data
+
+The libraries used in the code below are:
+
+-   tidyverse
+
+-   leaflet
+
+-   sf - used to load spatial polygons of shapefiles (e.g. lower layer super output areas (LSOA) / ward shapefiles)
+
+-   crosstalk - to add map marker filters
+
+-   htmltools - to optimise the map functionality when using crosstalk
+
+Data included:
+
+-   Birmingham and Solihull ICS GP practices and acute providers including longitude / latitude co-ordinates.
+
+-   Index of multiple deprivation (IMD) deciles for LSOAs within BSOL
+
+-   BSOL LSOA and ward shapefiles
+
+```{r map_setup_markdown, eval=FALSE}
+
+library(tidyverse)
+library(leaflet)
+library(sf)
+library(crosstalk)
+library(htmltools)
+
+practices <- read_csv("practices.csv")
+lsoa_data <- read_csv("bsol_imd.csv")
+lsoa <- st_read("lsoa.shp")
+wards <- st_read("wards.shp")
+
+```
+
+
+```{r map_setup_hidden, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Hidden chunk that loads all the required assets to keep the Markdown file neat
+
+library(tidyverse)
+library(leaflet)
+library(sf)
+library(crosstalk)
+library(htmltools)
+library(DT)
+
+practices <- read_csv("data/practices.csv")
+lsoa_data <- read_csv("data/bsol_imd.csv")
+lsoa <- st_read("data/lsoa.shp")
+wards <- st_read("data/wards.shp")
+
+```
+
+## Background Tiles
+
+A leaflet map begins with a leaflet function and each layer is added on top using the pipe operator (|>). 
+
+The addTiles() function adds a background map from OpenStreetMap.
+
+```{r map_tiles, warning = FALSE, message=FALSE}
+
+leaflet() |> 
+  addTiles()
+```
+
+## Markers
+
+Markers can be added to the map using the addAwesomeMarkers function. The customisation provided by addAwesomeMarkers makes it more useful than addMarkers.
+
+The below code maps 20 BSOL GP practices.
+
+```{r map_markers, warning = FALSE, message=FALSE}
+
+leaflet() |>  
+  addTiles() |> 
+  addAwesomeMarkers(
+    data = practices,
+    lng = ~ Long,
+    lat = ~ Lat,
+    popup = ~ paste(
+      "Practice Name:", Practice_Name,
+      "<br><br>",
+      "Population:", Population
+    )
+  )
+
+```
+
+
+The data source, longitude, latitude, and pop-up (data to appear when the marker is clicked) arguments are defined.
+
+-   The tilde sign (\~) is used to reduce repeated reference to the data source. In other words, it is rewriting "practices\$Long" as "\~Long".
+
+-   HTML can be used within a paste (concatenate) function to format the popup text. A single \<br\> adds a line break.
+
+It is worth noting that as the co-ordinates were derived from postcodes, the markers will not exactly match the map underlay but will be in the correct general area.
+
+addCircleMarkers() is a useful alternative for visualising a numeric value of a marker. addCircleMarkers() provides the ability to adjust the marker radius and colour based upon a value.

@@ -1,4 +1,4 @@
-fig:nice-fig
-tab:nice-tab
-prerequisites
-intro
+introduction
+libraries-and-data
+background-tiles
+markers
