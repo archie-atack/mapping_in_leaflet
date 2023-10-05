@@ -111,7 +111,7 @@ leaflet() |>
 
 Markers can be added to the map using the addAwesomeMarkers function. The customisation provided by addAwesomeMarkers makes it more useful than addMarkers.
 
-The below code maps 20 BSOL GP practices.
+The below code maps a sample of 20 BSOL GP practices.
 
 ```{r map_markers, warning = FALSE, message=FALSE}
 
