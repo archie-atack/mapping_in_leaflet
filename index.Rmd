@@ -1,5 +1,5 @@
---- 
-title: "Mapping in Leaflet"
+---
+title: "MLCSU R Guide"
 author: "Archie Atack"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -10,6 +10,8 @@ biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
+
+# Mapping in Leaflet
 
 ## Introduction
 
@@ -74,7 +76,6 @@ wards <- st_read("wards.shp")
 
 ```
 
-
 ```{r map_setup_hidden, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -96,7 +97,7 @@ wards <- st_read("data/wards.shp")
 
 ## Background Tiles
 
-A leaflet map begins with a leaflet function and each layer is added on top using the pipe operator (|>). 
+A leaflet map begins with a leaflet function and each layer is added on top using the pipe operator (\|\>).
 
 The addTiles() function adds a background map from OpenStreetMap.
 
@@ -128,7 +129,6 @@ leaflet() |>
   )
 
 ```
-
 
 The data source, longitude, latitude, and pop-up (data to appear when the marker is clicked) arguments are defined.
 

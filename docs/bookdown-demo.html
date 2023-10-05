@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Mapping in Leaflet</title>
   <meta name="description" content="Mapping in Leaflet" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown #bookdown:version# and GitBook 2.6.7" />
 
   <meta property="og:title" content="Mapping in Leaflet" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -41,14 +41,14 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -141,24 +141,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Mapping in Leaflet</h1>
+<p class="author"><em>Archie Atack</em></p>
+<p class="date"><em>2023-10-05</em></p>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
       <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Mapping in Leaflet</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="0.1" data-path=""><a href="#introduction"><i class="fa fa-check"></i><b>0.1</b> Introduction</a></li>
-<li class="chapter" data-level="0.2" data-path=""><a href="#libraries-and-data"><i class="fa fa-check"></i><b>0.2</b> Libraries and Data</a></li>
-<li class="chapter" data-level="0.3" data-path=""><a href="#background-tiles"><i class="fa fa-check"></i><b>0.3</b> Background Tiles</a></li>
-<li class="chapter" data-level="0.4" data-path=""><a href="#markers"><i class="fa fa-check"></i><b>0.4</b> Markers</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
+<!--bookdown:toc2:start-->
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span class="toc-section-number">0.1</span> Introduction</a></li>
+<li><a href="#libraries-and-data" id="toc-libraries-and-data"><span class="toc-section-number">0.2</span> Libraries and Data</a></li>
+<li><a href="#background-tiles" id="toc-background-tiles"><span class="toc-section-number">0.3</span> Background Tiles</a></li>
+<li><a href="#markers" id="toc-markers"><span class="toc-section-number">0.4</span> Markers</a></li>
 </ul>
-
+<!--bookdown:toc2:end-->
       </nav>
     </div>
 
@@ -174,13 +177,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Mapping in Leaflet</h1>
-<p class="author"><em>Archie Atack</em></p>
-<p class="date"><em>2023-10-05</em></p>
-</div>
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
 <div id="introduction" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Introduction<a href="#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 class="hasAnchor"><span class="header-section-number">0.1</span> Introduction<a href="#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Leaflet is a package in R that can create interactive maps. Most leaflet maps can be built out a few components:</p>
 <ul>
 <li><p>Markers</p></li>
@@ -201,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="libraries-and-data" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Libraries and Data<a href="#libraries-and-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 class="hasAnchor"><span class="header-section-number">0.2</span> Libraries and Data<a href="#libraries-and-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The libraries used in the code below are:</p>
 <ul>
 <li><p>tidyverse</p></li>
@@ -228,16 +228,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>wards <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;wards.shp&quot;</span>)</span></code></pre></div>
 </div>
 <div id="background-tiles" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Background Tiles<a href="#background-tiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 class="hasAnchor"><span class="header-section-number">0.3</span> Background Tiles<a href="#background-tiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A leaflet map begins with a leaflet function and each layer is added on top using the pipe operator (|&gt;).</p>
 <p>The addTiles() function adds a background map from OpenStreetMap.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">addTiles</span>()</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-00222d2fca8df50b9c8b" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-00222d2fca8df50b9c8b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-247f73e8cd73a0bbbd0f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-247f73e8cd73a0bbbd0f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="markers" class="section level2 hasAnchor" number="0.4">
-<h2><span class="header-section-number">0.4</span> Markers<a href="#markers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 class="hasAnchor"><span class="header-section-number">0.4</span> Markers<a href="#markers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Markers can be added to the map using the addAwesomeMarkers function. The customisation provided by addAwesomeMarkers makes it more useful than addMarkers.</p>
 <p>The below code maps 20 BSOL GP practices.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span>  </span>
@@ -252,8 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>      <span class="st">&quot;Population:&quot;</span>, Population</span>
 <span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    )</span>
 <span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  )</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f7632684458850d68169" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f7632684458850d68169">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[52.54072401,52.55817549,52.53876042,52.45739497,52.4516169,52.45739497,52.46559277,52.46437975,52.44496757,52.45739497,52.44457085,52.48707074,52.47572332,52.47572332,52.49782387,52.48629203,52.48532059,52.46259386,52.44446425,52.47256954],[-1.799895722,-1.823609905,-1.825957691,-1.887942922,-1.864561091,-1.887942922,-1.877780785,-1.887454421,-1.859623164,-1.887942922,-1.858638686,-1.793955955,-1.839076407,-1.839076407,-1.799856356,-1.942002901,-1.795628298,-1.817590815,-1.819636657,-1.861877039],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Practice Name: Ashfield Surgery <br><br> Population: 15607","Practice Name: Manor Practice <br><br> Population: 17498","Practice Name: Hawthorns Surgery <br><br> Population: 11156","Practice Name: Firstcare Health Centre <br><br> Population: 6321","Practice Name: Fernley Medical Centre <br><br> Population: 8658","Practice Name: Balsall Heath Health Centre -W <br><br> Population: 5228","Practice Name: Sparks Medical Group - Sparkbrook  Health Centre <br><br> Population: 4862","Practice Name: Highgate Medical Centre <br><br> Population: 4318","Practice Name: Springfield Medical Practice <br><br> Population: 2977","Practice Name: Balsall Heath Health Centre - South <br><br> Population: 3775","Practice Name: The Hill General Practice <br><br> Population: 5892","Practice Name: Church Lane - Khan <br><br> Population: 3492","Practice Name: Omnia Practice <br><br> Population: 17161","Practice Name: Yardley Green Medical Centre <br><br> Population: 10817","Practice Name: Bucklands End Lane Surgery <br><br> Population: 6299","Practice Name: Druid Group - Ejaz Medical Centre <br><br> Population: 11758","Practice Name: Poolway Medical Centre <br><br> Population: 2015","Practice Name: Swan Medical Centre <br><br> Population: 7405","Practice Name: Victoria Road Surgery <br><br> Population: 4384","Practice Name: Small Heath Medical Practice <br><br> Population: 5595"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[52.44446425,52.55817549],"lng":[-1.942002901,-1.793955955]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cc291e516e94f264792e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-cc291e516e94f264792e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[52.54072401,52.55817549,52.53876042,52.45739497,52.4516169,52.45739497,52.46559277,52.46437975,52.44496757,52.45739497,52.44457085,52.48707074,52.47572332,52.47572332,52.49782387,52.48629203,52.48532059,52.46259386,52.44446425,52.47256954],[-1.799895722,-1.823609905,-1.825957691,-1.887942922,-1.864561091,-1.887942922,-1.877780785,-1.887454421,-1.859623164,-1.887942922,-1.858638686,-1.793955955,-1.839076407,-1.839076407,-1.799856356,-1.942002901,-1.795628298,-1.817590815,-1.819636657,-1.861877039],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Practice Name: Ashfield Surgery <br><br> Population: 15607","Practice Name: Manor Practice <br><br> Population: 17498","Practice Name: Hawthorns Surgery <br><br> Population: 11156","Practice Name: Firstcare Health Centre <br><br> Population: 6321","Practice Name: Fernley Medical Centre <br><br> Population: 8658","Practice Name: Balsall Heath Health Centre -W <br><br> Population: 5228","Practice Name: Sparks Medical Group - Sparkbrook  Health Centre <br><br> Population: 4862","Practice Name: Highgate Medical Centre <br><br> Population: 4318","Practice Name: Springfield Medical Practice <br><br> Population: 2977","Practice Name: Balsall Heath Health Centre - South <br><br> Population: 3775","Practice Name: The Hill General Practice <br><br> Population: 5892","Practice Name: Church Lane - Khan <br><br> Population: 3492","Practice Name: Omnia Practice <br><br> Population: 17161","Practice Name: Yardley Green Medical Centre <br><br> Population: 10817","Practice Name: Bucklands End Lane Surgery <br><br> Population: 6299","Practice Name: Druid Group - Ejaz Medical Centre <br><br> Population: 11758","Practice Name: Poolway Medical Centre <br><br> Population: 2015","Practice Name: Swan Medical Centre <br><br> Population: 7405","Practice Name: Victoria Road Surgery <br><br> Population: 4384","Practice Name: Small Heath Medical Practice <br><br> Population: 5595"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[52.44446425,52.55817549],"lng":[-1.942002901,-1.793955955]}},"evals":[],"jsHooks":[]}</script>
 <p>The data source, longitude, latitude, and pop-up (data to appear when the marker is clicked) arguments are defined.</p>
 <ul>
 <li><p>The tilde sign (~) is used to reduce repeated reference to the data source. In other words, it is rewriting “practices$Long” as “~Long”.</p></li>
@@ -261,67 +261,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>It is worth noting that as the co-ordinates were derived from postcodes, the markers will not exactly match the map underlay but will be in the correct general area.</p>
 <p>addCircleMarkers() is a useful alternative for visualising a numeric value of a marker. addCircleMarkers() provides the ability to adjust the marker radius and colour based upon a value.</p>
-
+<!--chapter:end:index.Rmd-->
 </div>
+<!--bookdown:body:end-->
             </section>
 
           </div>
         </div>
       </div>
-
-
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
-});
-});
-</script>
+<!--bookdown:config-->
 
 </body>
 
