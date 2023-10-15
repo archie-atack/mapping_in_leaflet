@@ -3,3 +3,9 @@ introduction
 libraries-and-data
 background-tiles
 markers
+customised-markers
+conditionally-customised-markers
+polygons
+choropleth-plots-legends
+layers
+crosstalk
