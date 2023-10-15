@@ -155,8 +155,8 @@ map_icons <- awesomeIcons(
   library = "ion"
 )
 
-leaflet() %>%
-  addTiles() %>%
+leaflet() |>
+  addTiles() |>
   addAwesomeMarkers(
     data = practices,
     lng = ~ Longitude,
@@ -208,8 +208,8 @@ map_icons <- awesomeIcons(
   library = "ion"
 )
 
-leaflet() %>%
-  addTiles() %>%
+leaflet() |>
+  addTiles() |>
   addAwesomeMarkers(
     data = practices,
     lng = ~ Longitude,
@@ -234,8 +234,8 @@ Map boundaries can be added by using the addPolygons() function. BSOL local auth
 
 ```{r map_wards, message = FALSE, warning = FALSE, rgdal_show_exportToProj4_warnings = "none"}
 
-leaflet() %>%
-  addTiles() %>%
+leaflet() |>
+  addTiles() |>
   addAwesomeMarkers(
     data = practices,
     lng = ~ Longitude,
@@ -248,7 +248,7 @@ leaflet() %>%
       "Population:", Population
     ),
     icon = map_icons
-  ) %>%
+  ) |>
   addPolygons(
     data = local_authority,
     color = "black",
@@ -271,7 +271,7 @@ Choropleth plots can also be added using the addPolygons() function with a few a
 
 ```{r map_choropleth, message = FALSE, warning = FALSE, rgdal_show_exportToProj4_warnings = "none"}
 
-lsoa_plot <- lsoa %>% 
+lsoa_plot <- lsoa |> 
   merge(lsoa_data, by = "LSOA11C")
 
 map_pal <- colorNumeric(
@@ -280,34 +280,21 @@ map_pal <- colorNumeric(
   reverse = TRUE
 )
 
-leaflet() %>%
-  addTiles() %>%
-  addAwesomeMarkers(
-    data = practices,
-    lng = ~ Longitude,
-    lat = ~ Latitude,
-    popup = ~ paste(
-      "Practice Name:", Practice_Name,
-      "<br><br>",
-      "Local Authority:", LA_Name,
-      "<br><br>",
-      "Population:", Population
-    ),
-    icon = map_icons
-  ) %>%
+leaflet() |>
+  addTiles() |>
   addPolygons(
     data = local_authority,
     color = "black",
     weight = 3,
     fillColor = "transparent"
-  ) %>%
+  ) |>
   addPolygons(
     data = lsoa_plot,
     fillColor = ~ map_pal(Decile),
     opacity = 0,
     fillOpacity = 0.7,
     popup = ~ paste(Decile)
-  ) %>%
+  ) |>
   addLegend(
     data = lsoa_plot,
     position = "bottomright",
@@ -341,8 +328,8 @@ Leaflet enables layers of the map to be toggled on and off so multiple features 
 
 ```{r map_layers, message = FALSE, warning = FALSE, rgdal_show_exportToProj4_warnings = "none"}
 
-leaflet() %>%
-  addTiles() %>%
+leaflet() |>
+  addTiles() |>
   addAwesomeMarkers(
     data = practices,
     lng = ~ Longitude,
@@ -356,14 +343,14 @@ leaflet() %>%
     ),
     icon = map_icons,
     group = "Practices"
-  ) %>%
+  ) |>
   addPolygons(
     data = local_authority,
     color = "black",
     weight = 3,
     fillColor = "transparent",
     group = "LA Boundaries"
-  ) %>%
+  ) |>
   addPolygons(
     data = lsoa_plot,
     fillColor = ~ map_pal(Decile),
@@ -371,14 +358,14 @@ leaflet() %>%
     fillOpacity = 0.7,
     popup = ~ paste(Decile),
     group = "IMD"
-  ) %>%
+  ) |>
   addLegend(
     data = lsoa_plot,
     position = "bottomright",
     pal = map_pal,
     values = ~Decile,
     group = "IMD"
-  ) %>%
+  ) |>
   addLayersControl(
     overlayGroups = c(
       "Practices",
@@ -386,7 +373,7 @@ leaflet() %>%
       "IMD"
     ),
     options = layersControlOptions(collapsed = FALSE)
-  ) %>%
+  ) |>
   hideGroup(group = "Practices")
 
 ```
@@ -436,8 +423,8 @@ bscols(
       )
     )
   ),
-  leaflet(height = "100vh") %>% # map scales to size of page
-    addTiles() %>%
+  leaflet(height = "100vh") |> # map scales to size of page
+    addTiles() |>
     addAwesomeMarkers(
       data = practices_sd,
       lng = ~Longitude,
@@ -451,14 +438,14 @@ bscols(
       ),
       icon = map_icons,
       group = "Practices"
-    ) %>%
+    ) |>
     addPolygons(
       data = local_authority,
       color = "black",
       weight = 3,
       fillColor = "transparent",
       group = "LA Boundaries"
-    ) %>%
+    ) |>
     addPolygons(
       data = lsoa_plot,
       fillColor = ~ map_pal(Decile),
@@ -466,14 +453,14 @@ bscols(
       fillOpacity = 0.7,
       popup = ~ paste(Decile),
       group = "IMD"
-    ) %>%
+    ) |>
     addLegend(
       data = lsoa_plot,
       position = "bottomright",
       pal = map_pal,
       values = ~Decile,
       group = "IMD"
-    ) %>%
+    ) |>
     addLayersControl(
       overlayGroups = c(
         "Practices",
@@ -481,7 +468,7 @@ bscols(
         "IMD"
       ),
       options = layersControlOptions(collapsed = FALSE)
-    ) %>%
+    ) |>
     hideGroup(group = "IMD")
 )
 
@@ -512,8 +499,8 @@ bscols(
       )
     )
   ),
-  leaflet(height = "50vh") %>% # map scales to size of page
-    addTiles() %>%
+  leaflet(height = "50vh") |> # map scales to size of page
+    addTiles() |>
     addAwesomeMarkers(
       data = practices_sd,
       lng = ~Longitude,
@@ -527,14 +514,14 @@ bscols(
       ),
       icon = map_icons,
       group = "Practices"
-    ) %>%
+    ) |>
     addPolygons(
       data = local_authority,
       color = "black",
       weight = 3,
       fillColor = "transparent",
       group = "LA Boundaries"
-    ) %>%
+    ) |>
     addPolygons(
       data = lsoa_plot,
       fillColor = ~ map_pal(Decile),
@@ -542,14 +529,14 @@ bscols(
       fillOpacity = 0.7,
       popup = ~ paste(Decile),
       group = "IMD"
-    ) %>%
+    ) |>
     addLegend(
       data = lsoa_plot,
       position = "bottomright",
       pal = map_pal,
       values = ~Decile,
       group = "IMD"
-    ) %>%
+    ) |>
     addLayersControl(
       overlayGroups = c(
         "Practices",
@@ -557,8 +544,7 @@ bscols(
         "IMD"
       ),
       options = layersControlOptions(collapsed = FALSE)
-    ) %>%
-    hideGroup(group = "IMD")
+    )
 )
 
 ```
